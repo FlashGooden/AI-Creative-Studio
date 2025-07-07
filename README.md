@@ -1,6 +1,10 @@
 # CreativeFlow AI
 
+![CreativeFlow AI Dashboard](https://raw.githubusercontent.com/FlashGooden/AI-Creative-Studio/0bd5e4739979e6ba824caf194b2c88516e752a8e/Screenshot%202025-07-07%20at%204.09.55%E2%80%AFPM.png)
+
 A comprehensive multi-modal AI content generation platform that combines text, image, and audio processing to create complete creative projects.
+
+
 
 ## Features
 
