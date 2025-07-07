@@ -28,7 +28,7 @@ class Project(Base):
 
     # Project settings and metadata
     settings = Column(JSON, nullable=True)
-    metadata = Column(JSON, nullable=True)
+    project_metadata = Column(JSON, nullable=True)
 
     # Main content (story text, script, etc.)
     content = Column(Text, nullable=True)
