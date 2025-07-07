@@ -27,6 +27,9 @@ async def test_database(db: Session = Depends(get_database)):
     """Test database connection."""
     try:
         result = db.execute("SELECT 1 as test")
-        return {"message": "Database connection successful!", "result": result.scalar()}
+        return {
+            "message": "Database connection successful!",
+            "result": result.scalar(),
+        }
     except Exception as e:
         return {"error": f"Database connection failed: {str(e)}"}
