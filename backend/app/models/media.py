@@ -32,9 +32,9 @@ class Media(Base):
     file_size = Column(BigInteger, nullable=False)  # Size in bytes
 
     # Media-specific metadata
-    width = Column(Integer, nullable=True)      # For images/videos
-    height = Column(Integer, nullable=True)     # For images/videos
-    duration = Column(Integer, nullable=True)   # For audio/video (seconds)
+    width = Column(Integer, nullable=True)  # For images/videos
+    height = Column(Integer, nullable=True)  # For images/videos
+    duration = Column(Integer, nullable=True)  # For audio/video (seconds)
 
     # Processing status
     is_processed = Column(Boolean, default=False)
@@ -44,7 +44,7 @@ class Media(Base):
     # Content description
     title = Column(String, nullable=True)
     description = Column(Text, nullable=True)
-    alt_text = Column(String, nullable=True)    # For accessibility
+    alt_text = Column(String, nullable=True)  # For accessibility
 
     # Storage information
     storage_provider = Column(String, default="local")  # local, s3, etc.
