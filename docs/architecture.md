@@ -11,48 +11,48 @@ graph TB
     U[👤 User] --> WB[🌐 Web Browser]
     
     %% Frontend Layer
-    WB --> FE[⚛️ React Frontend<br/>TypeScript + Tailwind CSS]
+    WB --> FE[⚛️ React Frontend]
     
     %% Frontend Components
-    FE --> |Components| FC[🧩 UI Components<br/>• Layout (Header, Sidebar)<br/>• Forms (Login, Register)<br/>• Generators (Story, Social)<br/>• Media Players]
-    FE --> |State| FS[🗂️ State Management<br/>• Zustand Store<br/>• Auth Store<br/>• Project Store]
-    FE --> |Services| API[🔌 API Client<br/>• HTTP Client<br/>• Token Management<br/>• Error Handling]
+    FE --> |Components| FC[🧩 UI Components]
+    FE --> |State| FS[🗂️ Zustand Store]
+    FE --> |Services| API[🔌 API Client]
     
     %% Backend Layer
-    API --> |HTTPS/REST| BE[🚀 FastAPI Backend<br/>Python + SQLAlchemy]
+    API --> |HTTPS/REST| BE[🚀 FastAPI Backend]
     
     %% Backend Components
-    BE --> AUTH[🔐 Authentication<br/>• JWT Tokens<br/>• Password Hashing<br/>• User Management]
-    BE --> ROUTES[🛤️ API Routes<br/>• /auth - Authentication<br/>• /users - User Management<br/>• /projects - CRUD<br/>• /generate - AI Services]
-    BE --> DEPS[⚙️ Dependencies<br/>• Database Sessions<br/>• Current User<br/>• Redis Client]
+    BE --> AUTH[🔐 Authentication]
+    BE --> ROUTES[🛤️ API Routes]
+    BE --> DEPS[⚙️ Dependencies]
     
     %% Data Layer
-    BE --> |SQLAlchemy ORM| DB[(🗄️ PostgreSQL<br/>• Users<br/>• Projects<br/>• Generations<br/>• Media)]
-    BE --> |Redis Client| CACHE[(⚡ Redis Cache<br/>• Session Data<br/>• Generation Queue<br/>• Rate Limiting)]
+    BE --> |SQLAlchemy ORM| DB[(🗄️ PostgreSQL)]
+    BE --> |Redis Client| CACHE[(⚡ Redis Cache)]
     
     %% AI Services Layer
     BE --> |HTTP APIs| AI[🤖 AI Services]
-    AI --> OPENAI[🧠 OpenAI<br/>• GPT-4 (Text)<br/>• DALL-E 3 (Images)<br/>• Whisper (Speech)]
-    AI --> ELEVEN[🗣️ ElevenLabs<br/>• Voice Synthesis<br/>• Speech Generation]
-    AI --> STABILITY[🎨 Stability AI<br/>• Image Generation<br/>• Style Transfer]
+    AI --> OPENAI[🧠 OpenAI]
+    AI --> ELEVEN[🗣️ ElevenLabs]
+    AI --> STABILITY[🎨 Stability AI]
     
     %% Storage Layer
     BE --> |File Upload| STORAGE[☁️ Storage Layer]
-    STORAGE --> S3[📦 AWS S3<br/>• Media Files<br/>• Generated Content<br/>• User Uploads]
-    STORAGE --> LOCAL[💾 Local Storage<br/>• Development<br/>• Temporary Files]
+    STORAGE --> S3[📦 AWS S3]
+    STORAGE --> LOCAL[💾 Local Storage]
     
     %% Infrastructure Layer
     subgraph INFRA[🏗️ Infrastructure]
-        DOCKER[🐳 Docker<br/>• PostgreSQL<br/>• Redis<br/>• FastAPI<br/>• React]
-        ENV[⚙️ Environment<br/>• Configuration<br/>• Secrets<br/>• API Keys]
+        DOCKER[🐳 Docker Containers]
+        ENV[⚙️ Environment Config]
     end
     
     %% Real-time Layer
-    BE --> |WebSockets| WS[⚡ Real-time Updates<br/>• Generation Progress<br/>• Live Notifications<br/>• Status Updates]
+    BE --> |WebSockets| WS[⚡ Real-time Updates]
     WS --> FE
     
     %% Background Processing
-    BE --> |Celery/Background| BG[⚙️ Background Tasks<br/>• AI Generation Queue<br/>• Media Processing<br/>• Cleanup Jobs]
+    BE --> |Background Tasks| BG[⚙️ Task Queue]
     BG --> CACHE
     
     %% Security Layer
@@ -248,17 +248,17 @@ erDiagram
 ```mermaid
 graph LR
     subgraph DEV[🛠️ Development]
-        DC[🐳 Docker Compose<br/>• PostgreSQL<br/>• Redis<br/>• FastAPI<br/>• React]
-        LOCAL[💻 Local Development<br/>• Hot Reload<br/>• Debug Mode<br/>• Local Storage]
+        DC[🐳 Docker Compose]
+        LOCAL[💻 Local Development]
     end
     
     subgraph PROD[🚀 Production]
         LB[⚖️ Load Balancer]
-        APP[📱 Application Servers<br/>• FastAPI Instances<br/>• Gunicorn/Uvicorn]
-        DB[🗄️ Database Cluster<br/>• PostgreSQL Primary<br/>• Read Replicas]
-        REDIS[⚡ Redis Cluster<br/>• Cache<br/>• Session Store]
-        CDN[🌐 CDN<br/>• Static Assets<br/>• Media Files]
-        S3[☁️ AWS S3<br/>• File Storage<br/>• Backups]
+        APP[📱 Application Servers]
+        DB[🗄️ Database Cluster]
+        REDIS[⚡ Redis Cluster]
+        CDN[🌐 CDN]
+        S3[☁️ AWS S3]
     end
     
     LB --> APP
